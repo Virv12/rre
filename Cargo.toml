@@ -1,0 +1,16 @@
+[package]
+name = "rre"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[[bin]]
+name = "test"
+path = "src/test.rs"
+
+[dependencies]
+syn = "1"
+quote = "1"
+regex = "1"
