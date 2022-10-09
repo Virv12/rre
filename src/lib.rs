@@ -136,9 +136,11 @@ pub fn regex(input: TokenStream) -> TokenStream {
 
     let (s, t) = stk.pop().unwrap();
 
+    let len = v.len();
+
     let tokens: TokenStream = quote! {
         |s: &str| -> bool {
-            let arr = [ #(#v),* ];
+            const arr: [u32; #len] = [ #(#v),* ];
             if s.is_empty() {
                 return arr[#s * #n + #t] & 1 != 0;
             }
